@@ -22,16 +22,16 @@ io.on("connection", (s) => {
       }
     }
     if (d == "w") {
-      SOCKETS[i]["pos"][1] += -0.5;
+      SOCKETS[socketIndex]["pos"][1] += -0.5;
     }
     if (d == "a") {
-      SOCKETS[i]["pos"][0] += -0.5;
+      SOCKETS[socketIndex]["pos"][0] += -0.5;
     }
     if (d == "s") {
-      SOCKETS[i]["pos"][1] += 0.5;
+      SOCKETS[socketIndex]["pos"][1] += 0.5;
     }
     if (d == "d") {
-      SOCKETS[i]["pos"][0] += 0.5;
+      SOCKETS[socketIndex]["pos"][0] += 0.5;
     }
     io.emit("update", SOCKETS);
   });
@@ -41,6 +41,6 @@ io.on("connection", (s) => {
         socketIndex = i;
       }
     }
-    SOCKETS.splice(i, 1);
+    SOCKETS.splice(socketIndex, 1);
   });
 });
