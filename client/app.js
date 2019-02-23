@@ -6,7 +6,7 @@ var ak;
 
 function preload() {
   s = io();
-  ak = loadImage("ak.png");
+  ak = loadImage("/client/ak.png");
 }
 
 function setup() {
