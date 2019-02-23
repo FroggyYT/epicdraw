@@ -13,7 +13,7 @@ var io = require("socket.io")(server,{});
 var SOCKETS = [];
 
 io.on("connection", (s) => {
-  SOCKETS.push({id:s.id, pos:[300, 300]});
+  SOCKETS.push({socket:s, id:s.id, pos:[300, 300]});
   var socketIndex;
   s.on("move", (d) => {
     for (i in SOCKETS) {
