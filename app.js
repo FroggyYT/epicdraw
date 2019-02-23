@@ -13,6 +13,5 @@ var io = require("socket.io")(server,{});
 io.on("connection", (s) => {
   s.on("draw", (d) => {
     io.emit("draw", d);
-    console.log("Got");
   });
 });
