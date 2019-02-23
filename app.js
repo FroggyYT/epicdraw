@@ -14,10 +14,9 @@ var SOCKETS = [];
 
 io.on("connection", (s) => {
   SOCKETS.push({id:s.id, pos:[300, 300]});
-  console.log(s);
   var socketIndex;
   s.on("move", (d) => {
-    for (i in SOCKETS) {
+    for (var i in SOCKETS) {
       if (SOCKETS[i]["id"] == s.id) {
         socketIndex = i;
       }
@@ -37,7 +36,7 @@ io.on("connection", (s) => {
     io.emit("update", SOCKETS);
   });
   s.on("disconnect", () => {
-    for (i in SOCKETS) {
+    for (var i in SOCKETS) {
       if (SOCKETS[i]["id"] == s.id) {
         socketIndex = i;
       }
