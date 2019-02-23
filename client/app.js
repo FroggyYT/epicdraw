@@ -21,6 +21,10 @@ function setup() {
     }
     document.getElementById("display-color").style.backgroundColor = `rgb(${color[0]},${color[1]},${color[2]})`;
   });
+
+  document.getElementById("reset").addEventListener("click", () => {
+    background(215);
+  });
 }
 
 function draw() {
