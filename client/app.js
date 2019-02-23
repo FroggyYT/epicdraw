@@ -9,9 +9,6 @@ function preload() {
 function setup() {
   createCanvas(600, 600);
   background(51);
-}
-
-function draw() {
   s.on("update", (d) => {
     background(51);
     fill(0, 0, 255);
@@ -21,6 +18,10 @@ function draw() {
       ellipse(socket["pos"][0], socket["pos"][1], 25, 25);
     }
   });
+}
+
+function draw() {
+
 }
 
 var movingW = false;
