@@ -1,40 +1,70 @@
-var color;
-
 var s;
 
 function preload() {
-  color = [0,0,0];
   s = io();
 }
 
 function setup() {
   createCanvas(600, 600);
-
-  background(215);
-
-  document.getElementById("display-color").style.backgroundColor = `rgb(${color[0]},${color[1]},${color[2]})`;
-
-  document.getElementById("confirm-color").addEventListener("click", () => {
-    color = document.getElementById("color").value.split(",");
-    for (i of color) {
-      i = JSON.parse(i);
-    }
-    document.getElementById("display-color").style.backgroundColor = `rgb(${color[0]},${color[1]},${color[2]})`;
-  });
-
-  document.getElementById("reset").addEventListener("click", () => {
-    background(215);
-  });
 }
 
 function draw() {
-  s.on("draw", (d) => {
-    fill(d.color[0], d.color[1], d.color[2]);
-    noStroke();
-    ellipse(d.x, d.y, 25, 25);
+  s.on("update", (d) => {
+    background(51);
+    fill(0, 0, 255);
+    stroke(0);
+    for (socket of d) {
+      ellipse(socket["pos"][0], socket["pos"][1], 25, 25);
+    }
   });
 }
 
-function mouseDragged() {
-  s.emit("draw", {x:mouseX, y:mouseY, color:color});
+var movingW = false;
+var movingA = false;
+var movingS = false;
+var movingD = false;
+
+setInterval(() => {
+  if (movingW) {
+    s.emit("move", "w");
+  }
+  if (movingA) {
+    s.emit("move", "a");
+  }
+  if (movingS) {
+    s.emit("move", "s");
+  }
+  if (movingD) {
+    s.emit("move", "d");
+  }
+}, 1);
+
+function keyPressed() {
+  if (key == "w" || key == "W") {
+    movingW = true;
+  }
+  if (key == "a" || key == "A") {
+    movingA = true;
+  }
+  if (key == "s" || key == "S") {
+    movingS = true;
+  }
+  if (key == "d" || key == "D") {
+    movingD = true;
+  }
+}
+
+function keyReleased() {
+  if (key == "w" || key == "W") {
+    movingW = false;
+  }
+  if (key == "a" || key == "A") {
+    movingA = false;
+  }
+  if (key == "s" || key == "S") {
+    movingS = false;
+  }
+  if (key == "d" || key == "D") {
+    movingD = false;
+  }
 }
