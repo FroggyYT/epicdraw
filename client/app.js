@@ -1,5 +1,7 @@
 var s;
 
+var sockets;
+
 function preload() {
   s = io();
 }
@@ -14,6 +16,7 @@ function draw() {
     background(51);
     fill(0, 0, 255);
     stroke(0);
+    sockets = d;
     for (socket of d) {
       ellipse(socket["pos"][0], socket["pos"][1], 25, 25);
     }
