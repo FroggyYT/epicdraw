@@ -15,10 +15,10 @@ var SOCKETS = [];
 var TSERIES = [];
 
 setInterval(() => {
-  var zomX = 300;
+  var zomX = Math.random() * 500 + 50;
   var zomY = 700;
   for (var i in TSERIES) {
-    TSERIES[i].y -= 3;
+    TSERIES[i].y -= 10;
   }
   TSERIES.push({x:zomX, y:zomY})
   io.emit("tseries", [TSERIES,SOCKETS]);
