@@ -18,7 +18,7 @@ function setup() {
     stroke(0);
     sockets = d;
     for (socket of d) {
-      image(ak, socket["pos"][0] - 50, socket["pos"][1] - 50, 100, 100);
+      image(ak, socket["pos"][0] - 25, socket["pos"][1] - 25, 50, 50);
     }
   });
 }
