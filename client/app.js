@@ -2,8 +2,11 @@ var s;
 
 var sockets;
 
+var ak;
+
 function preload() {
   s = io();
+  ak = loadImage("ak.png");
 }
 
 function setup() {
@@ -15,7 +18,7 @@ function setup() {
     stroke(0);
     sockets = d;
     for (socket of d) {
-      ellipse(socket["pos"][0], socket["pos"][1], 25, 25);
+      image(ak, socket["pos"][0] - 25/2, socket["pos"][1] - 25/2, 25, 25);
     }
   });
 }
