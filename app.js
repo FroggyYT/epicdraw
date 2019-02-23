@@ -12,11 +12,17 @@ var io = require("socket.io")(server,{});
 
 var SOCKETS = [];
 
-// setInterval(() => {
-//   var zomX = Math.random() * 600;
-//   var zomY = 650;
-//   io.emit("zombie", {x:zomX, y:zomY});
-// }, 1000);
+var TSERIES = [];
+
+setInterval(() => {
+  var zomX = 300;
+  var zomY = 700;
+  for (var i in TSERIES) {
+    TSERIES.y -= 3;
+  }
+  TSERIES.push({x:zomX, y:zomY})
+  io.emit("tseries", [TSERIES,SOCKETS]);
+}, 1000);
 
 io.on("connection", (s) => {
   SOCKETS.push({id:s.id, pos:[300, 300]});

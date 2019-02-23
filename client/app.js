@@ -1,12 +1,12 @@
 var s;
 
-var sockets;
-
-var ak;
+var pew;
+var tseries;
 
 function preload() {
   s = io();
   pew = loadImage("/client/pew.png");
+  tseries = loadImage("/client/tseries.png");
 }
 
 function setup() {
@@ -14,11 +14,18 @@ function setup() {
   background(51);
   s.on("update", (d) => {
     background(51);
-    fill(0, 0, 255);
-    stroke(0);
     sockets = d;
     for (socket of d) {
       image(pew, socket["pos"][0] - 50, socket["pos"][1] - 50, 100, 100);
+    }
+  });
+  s.on("tseries", (d) => {
+    background(51);
+    for (socket of d[1]) {
+      image(pew, socket["pos"][0] - 50, socket["pos"][1] - 50, 100, 100);
+    }
+    for (tserie of d[0]) {
+      image(tseries, tserie.x - 50, tserie.y - 50, 100, 100);
     }
   });
 }
