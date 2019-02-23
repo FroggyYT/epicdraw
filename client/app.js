@@ -6,7 +6,7 @@ var ak;
 
 function preload() {
   s = io();
-  pew = loadImage("/client/pew.jpg");
+  pew = loadImage("/client/pew.png");
 }
 
 function setup() {
