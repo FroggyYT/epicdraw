@@ -12,9 +12,18 @@ var io = require("socket.io")(server,{});
 
 var SOCKETS = [];
 
+setInterval(() => {
+  var zomX = Math.random() * 600;
+  var zomY = 650;
+  io.emit("zombie", {x:zomX, y:zomY});
+}, 1000);
+
 io.on("connection", (s) => {
   SOCKETS.push({id:s.id, pos:[300, 300]});
   var socketIndex;
+  s.on("forceUpdate", () => {
+    io.emit("update", SOCKETS);
+  });
   s.on("move", (d) => {
     for (var i in SOCKETS) {
       if (SOCKETS[i]["id"] == s.id) {
@@ -42,5 +51,6 @@ io.on("connection", (s) => {
       }
     }
     SOCKETS.splice(socketIndex, 1);
+    io.emit("update", SOCKETS);
   });
 });
