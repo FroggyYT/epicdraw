@@ -18,7 +18,7 @@ setInterval(() => {
   var zomX = 300;
   var zomY = 700;
   for (var i in TSERIES) {
-    TSERIES.y -= 3;
+    TSERIES[i].y -= 3;
   }
   TSERIES.push({x:zomX, y:zomY})
   io.emit("tseries", [TSERIES,SOCKETS]);
