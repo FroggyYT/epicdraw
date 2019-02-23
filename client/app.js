@@ -6,7 +6,7 @@ var ak;
 
 function preload() {
   s = io();
-  ak = loadImage("/client/ak.png");
+  pew = loadImage("/client/pew.jpg");
 }
 
 function setup() {
@@ -18,7 +18,7 @@ function setup() {
     stroke(0);
     sockets = d;
     for (socket of d) {
-      image(ak, socket["pos"][0] - 25, socket["pos"][1] - 25, 50, 50);
+      image(pew, socket["pos"][0] - 25, socket["pos"][1] - 25, 50, 50);
     }
   });
 }
