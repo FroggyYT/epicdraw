@@ -18,17 +18,6 @@ function setup() {
       ellipse(socket["pos"][0], socket["pos"][1], 25, 25);
     }
   });
-  s.on("zombie", (d) => {
-    setInterval((d) => {
-      background(51);
-      fill(0, 255, 0);
-      stroke(0);
-      ellipse(d.x, d.y, 25, 25);
-      d.x += 3;
-      d.y += 3;
-      s.emit("forceUpdate");
-    }, 500);
-  });
 }
 
 function draw() {
