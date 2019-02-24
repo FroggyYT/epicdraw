@@ -15,14 +15,17 @@ var SOCKETS = [];
 var TSERIES = [];
 
 setInterval(() => {
+  TSERIES.push({x:zomX, y:zomY})
+}, 3000);
+
+setInterval(() => {
   var zomX = Math.random() * 500 + 50;
   var zomY = 700;
   for (var i in TSERIES) {
     TSERIES[i].y -= 10;
   }
-  TSERIES.push({x:zomX, y:zomY})
   io.emit("tseries", [TSERIES,SOCKETS]);
-}, 1000);
+}, 500);
 
 io.on("connection", (s) => {
   SOCKETS.push({id:s.id, pos:[300, 300]});
