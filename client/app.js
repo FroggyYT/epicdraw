@@ -11,16 +11,16 @@ function preload() {
 
 function setup() {
   createCanvas(600, 600);
-  background(215);
+  background(51);
   s.on("update", (d) => {
-    background(215);
+    background(51);
     sockets = d;
     for (socket of d) {
       image(pew, socket["pos"][0] - 50, socket["pos"][1] - 50, 100, 100);
     }
   });
   s.on("tseries", (d) => {
-    background(215);
+    background(51);
     for (socket of d[1]) {
       image(pew, socket["pos"][0] - 50, socket["pos"][1] - 50, 100, 100);
     }
