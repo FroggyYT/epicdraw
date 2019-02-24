@@ -48,7 +48,7 @@ io.on("connection", (s) => {
     if (d == "d") {
       SOCKETS[socketIndex]["pos"][0] += 0.5;
     }
-    io.emit("update", SOCKETS);
+    io.emit("update", [TSERIES,SOCKETS]);
   });
   s.on("disconnect", () => {
     for (var i in SOCKETS) {
@@ -57,6 +57,6 @@ io.on("connection", (s) => {
       }
     }
     SOCKETS.splice(socketIndex, 1);
-    io.emit("update", SOCKETS);
+    io.emit("update", [TSERIES,SOCKETS]);
   });
 });

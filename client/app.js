@@ -14,9 +14,11 @@ function setup() {
   background(51);
   s.on("update", (d) => {
     background(51);
-    sockets = d;
-    for (socket of d) {
+    for (socket of d[1]) {
       image(pew, socket["pos"][0] - 50, socket["pos"][1] - 50, 100, 100);
+    }
+    for (tserie of d[0]) {
+      image(tseries, tserie.x - 50, tserie.y - 50, 100, 100);
     }
   });
   s.on("tseries", (d) => {
