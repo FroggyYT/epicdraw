@@ -18,7 +18,7 @@ setInterval(() => {
   var zomX = Math.random() * 500 + 50;
   var zomY = 700;
   TSERIES.push({x:zomX, y:zomY})
-}, 3000);
+}, 5000);
 
 setInterval(() => {
   for (var i in TSERIES) {
