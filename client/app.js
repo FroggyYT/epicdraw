@@ -32,10 +32,6 @@ function setup() {
   });
 }
 
-function draw() {
-
-}
-
 var movingW = false;
 var movingA = false;
 var movingS = false;
@@ -84,4 +80,8 @@ function keyReleased() {
   if (key == "d" || key == "D") {
     movingD = false;
   }
+}
+
+function mousePresed() {
+  s.emit("attack", {x:mouseX, y:mouseY});
 }
