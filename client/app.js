@@ -82,6 +82,6 @@ function keyReleased() {
   }
 }
 
-function mousePresed() {
+function mousePressed() {
   s.emit("attack", {x:mouseX, y:mouseY});
 }
