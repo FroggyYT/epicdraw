@@ -24,7 +24,7 @@ setInterval(() => {
   for (var i in TSERIES) {
     TSERIES[i].y -= 10;
   }
-  io.emit("TSERIES[i]s", [TSERIES,SOCKETS]);
+  io.emit("tseries", [TSERIES,SOCKETS]);
 }, 500);
 
 io.on("connection", (s) => {
