@@ -15,12 +15,12 @@ var SOCKETS = [];
 var TSERIES = [];
 
 setInterval(() => {
+  var zomX = Math.random() * 500 + 50;
+  var zomY = 700;
   TSERIES.push({x:zomX, y:zomY})
 }, 3000);
 
 setInterval(() => {
-  var zomX = Math.random() * 500 + 50;
-  var zomY = 700;
   for (var i in TSERIES) {
     TSERIES[i].y -= 10;
   }
