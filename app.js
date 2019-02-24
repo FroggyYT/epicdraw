@@ -54,7 +54,7 @@ io.on("connection", (s) => {
 
   s.on("attack", (d) => {
     for (var i in TSERIES) {
-      if (d.x < TSERIES[i].x + 25 && d.x > TSERIES[i].x - 25 && d.y < TSERIES[i].y + 25 && d.y > TSERIES[i].y - 25) {
+      if (d.x < TSERIES[i].x + 50 && d.x > TSERIES[i].x - 50 && d.y < TSERIES[i].y + 50 && d.y > TSERIES[i].y - 50) {
         TSERIES[i].health -= 25;
         if (TSERIES[i].health == 0) {
           TSERIES.splice(i, 1);
