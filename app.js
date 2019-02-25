@@ -15,9 +15,13 @@ var SOCKETS = [];
 var TSERIES = [];
 
 setInterval(() => {
-  var zomX = Math.random() * 500 + 50;
-  var zomY = 700;
-  TSERIES.push({x:zomX, y:zomY, health:100});
+  if (SOCKETS.length > 0) {
+    var zomX = Math.random() * 500 + 50;
+    var zomY = 700;
+    TSERIES.push({x:zomX, y:zomY, health:100});
+  } else {
+    TSERIES = [];
+  }
 }, 5000);
 
 setInterval(() => {
