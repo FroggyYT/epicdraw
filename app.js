@@ -24,4 +24,8 @@ io.on("connection", (s) => {
     }
     SOCKETS.splice(socketIndex, 1);
   });
+  
+  s.on("draw", d => {
+    
+  });
 });
