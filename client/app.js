@@ -7,6 +7,7 @@ function setup() {
 
 s.on("update", d => {
   background(51);
+  console.log(d);
   for (var i of d) {
     for (var j of d.points) {
       fill(255);
