@@ -26,6 +26,12 @@ io.on("connection", (s) => {
   });
   
   s.on("draw", d => {
-    
+    for (var i in SOCKETS) {
+      if (SOCKETS[i]["id"] == s.id) {
+        socketIndex = i;
+      }
+    }
+    SOCKETS[socketIndex]["points"].push({x:d.x,y:d.y});
+    io.emit("update", SOCKETS);
   });
 });
