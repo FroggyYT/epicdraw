@@ -13,7 +13,7 @@ var io = require("socket.io")(server,{});
 var SOCKETS = [];
 
 io.on("connection", (s) => {
-  SOCKETS.push({id:s.id, points:[]});
+  SOCKETS.push({id:s.id, points:[{x:-110,y:-110}]});
   var socketIndex;
   
   s.on("disconnect", () => {
@@ -31,7 +31,7 @@ io.on("connection", (s) => {
         socketIndex = i;
       }
     }
-    SOCKETS[socketIndex]["points"].push({x:d.x,y:d.y});
+    SOCKETS[socketIndex].points.push({x:d.x,y:d.y});
     io.emit("update", SOCKETS);
   });
 });
