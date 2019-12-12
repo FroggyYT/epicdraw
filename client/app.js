@@ -1,8 +1,4 @@
-var s;
-
-function preload() {
-  s = io();
-}
+var s = io();
 
 function setup() {
   createCanvas(800, 600);
