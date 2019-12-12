@@ -7,8 +7,8 @@ function setup() {
 
 s.on("update", d => {
   background(51);
-  console.log(d);
   for (var i of d) {
+    console.log(i);
     for (var j of d.points) {
       fill(255);
       noStroke();
